@@ -1,0 +1,3 @@
+ipython
+ipdb
+django==1.11.26
