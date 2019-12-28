@@ -2,6 +2,9 @@
 
 Creating a simple Django Project
 
-pip install -r requirments.txt
+To Install all Dependencies:
+
+pip install -r requirements.txt
 
 Medium Article with Steps: 
+
