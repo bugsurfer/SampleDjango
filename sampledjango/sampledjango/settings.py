@@ -119,3 +119,43 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['general'],
+    },
+    'formatters': {
+        'default': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        }
+    },
+    'handlers': {
+        'general': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'formatter': 'default',
+            'filename': 'django/log/general.log'
+        },
+        'user': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'formatter': 'default',
+            'filename': 'django/log/user.log'
+        }
+    },
+    'loggers': {
+        'general': {
+            'level': 'INFO',
+            'handlers': ['general'],
+            'propagate': False,
+        },
+        'user': {
+            'level': 'INFO',
+            'handlers': ['user'],
+            'propagate': False,
+        }
+    }
+}
